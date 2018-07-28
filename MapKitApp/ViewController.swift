@@ -64,6 +64,11 @@ class ViewController: UIViewController {
         mapView.addAnnotations(venues)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        checkLocationServiceAuthenticationStatus()
+    }
+    
     /* Set radius of zoom on map load. */
     private let regionRadius: CLLocationDistance = 1000
     
@@ -71,6 +76,28 @@ class ViewController: UIViewController {
     func zoomMapOn(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    /* Get current location of user. Check if authorization has been given, or ask for it. */
+    var locationManager = CLLocationManager()
+    
+    func checkLocationServiceAuthenticationStatus() {
+        locationManager.delegate = self
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
+        } else {
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+    }
+}
+
+extension ViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations.last!
+        self.mapView.showsUserLocation = true
+        zoomMapOn(location: location)
     }
 }
 
@@ -93,5 +120,10 @@ extension ViewController: MKMapViewDelegate {
             return view
         }
         return nil
+    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! Venue
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
     }
 }

@@ -44,4 +44,12 @@ class Venue: NSObject, MKAnnotation {
         
         return Venue(title: title, locationName: locationName, coordinate: coordinate)
     }
+    
+    func mapItem() -> MKMapItem {
+        let addressDictionary = [String(kABPersonAddressStreetKey) : subtitle]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDictionary)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = "\(title) \(subtitle)"
+        return mapItem
+    }
 }
