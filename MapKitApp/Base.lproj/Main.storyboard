@@ -24,10 +24,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="j75-E2-m5P" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8hH-oB-SWG"/>
-                            <constraint firstItem="j75-E2-m5P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="8mt-eU-bEK"/>
-                            <constraint firstItem="j75-E2-m5P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fAv-p8-Em1"/>
-                            <constraint firstItem="j75-E2-m5P" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uNi-j9-UVv"/>
+                            <constraint firstItem="j75-E2-m5P" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="25X-1K-FTP"/>
+                            <constraint firstItem="j75-E2-m5P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2wh-BU-5WN"/>
+                            <constraint firstItem="j75-E2-m5P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Rbu-d1-5Ds"/>
+                            <constraint firstItem="j75-E2-m5P" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="hIW-mz-i5G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

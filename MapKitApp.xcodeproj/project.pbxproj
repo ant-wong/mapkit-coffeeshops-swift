@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95BAF68C210BE89400F4F9FB /* Venues.json in Resources */ = {isa = PBXBuildFile; fileRef = 95BAF68B210BE89400F4F9FB /* Venues.json */; };
+		95BAF68E210CAFE800F4F9FB /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAF68D210CAFE800F4F9FB /* Venue.swift */; };
 		95F87E7D210BE4E30022F59E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F87E7C210BE4E30022F59E /* AppDelegate.swift */; };
 		95F87E7F210BE4E30022F59E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F87E7E210BE4E30022F59E /* ViewController.swift */; };
 		95F87E82210BE4E30022F59E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F87E80210BE4E30022F59E /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		95BAF68B210BE89400F4F9FB /* Venues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Venues.json; sourceTree = "<group>"; };
+		95BAF68D210CAFE800F4F9FB /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		95F87E79210BE4E30022F59E /* MapKitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapKitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F87E7C210BE4E30022F59E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95F87E7E210BE4E30022F59E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				95BAF68B210BE89400F4F9FB /* Venues.json */,
 				95F87E7C210BE4E30022F59E /* AppDelegate.swift */,
 				95F87E7E210BE4E30022F59E /* ViewController.swift */,
+				95BAF68D210CAFE800F4F9FB /* Venue.swift */,
 				95F87E80210BE4E30022F59E /* Main.storyboard */,
 				95F87E83210BE4E40022F59E /* Assets.xcassets */,
 				95F87E85210BE4E40022F59E /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95F87E7F210BE4E30022F59E /* ViewController.swift in Sources */,
+				95BAF68E210CAFE800F4F9FB /* Venue.swift in Sources */,
 				95F87E7D210BE4E30022F59E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
