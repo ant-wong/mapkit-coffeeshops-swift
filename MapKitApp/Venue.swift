@@ -8,6 +8,7 @@
 
 import MapKit
 import AddressBook
+import SwiftyJSON
 
 /* Class for venues/pins */
 class Venue: NSObject, MKAnnotation {
@@ -25,5 +26,22 @@ class Venue: NSObject, MKAnnotation {
     /* MKAnnotation */
     var subtitle: String? {
         return locationName
+    }
+    
+    /* Parse the json file */
+    class func from(json: JSON) -> Venue? {
+        var title: String
+        if let unwrappedTitle = json["name"].string {
+            title = unwrappedTitle
+        } else {
+            title = ""
+        }
+        
+        let locationName = json["location"]["address"].string
+        let lat = json["location"]["lat"].doubleValue
+        let long = json["location"]["lng"].doubleValue
+        let coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        
+        return Venue(title: title, locationName: locationName, coordinate: coordinate)
     }
 }

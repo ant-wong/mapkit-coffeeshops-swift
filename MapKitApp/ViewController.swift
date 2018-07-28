@@ -8,9 +8,41 @@
 
 import UIKit
 import MapKit
+import SwiftyJSON
 
 class ViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
+    
+    var venues = [Venue]()
+    
+    /* Fetchd data from JSON file, or this is where you fetch data from REST API */
+    func fetchData() {
+        let fileName = Bundle.main.path(forResource: "Venues", ofType: "json")
+        let filePath = URL(fileURLWithPath: fileName!)
+        var data: Data?
+        do {
+            data = try Data(contentsOf: filePath, options: Data.ReadingOptions(rawValue: 0))
+        } catch let error {
+            data = nil
+            print("Report error \(error.localizedDescription)")
+        }
+        
+        /* If there is data, fetch the specific key values you need from JSON object */
+        if let jsonData = data {
+            do {
+                let json = try JSON(data: jsonData)
+                if let venueJSONs = json["response"]["venues"].array {
+                    for venueJSON in venueJSONs {
+                        if let venue = Venue.from(json: venueJSON) {
+                            self.venues.append(venue)
+                        }
+                    }
+                }
+            } catch let error {
+                print("Report error \(error.localizedDescription)")
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +52,16 @@ class ViewController: UIViewController {
         zoomMapOn(location: initialLocation)
         
         /* Create a sample pin on load */
-        let sampleStarbucks = Venue(title: "Mock Starbucks", locationName: "Some street lolol", coordinate: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.431297))
-        mapView.addAnnotation(sampleStarbucks)
+        /*
+            let sampleStarbucks = Venue(title: "Mock Starbucks", locationName: "Some street lolol", coordinate: CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.431297))
+            mapView.addAnnotation(sampleStarbucks)
+        */
+        
         mapView.delegate = self
+        
+        /* Call func to get JSON data and create multiple annotations */
+        fetchData()
+        mapView.addAnnotations(venues)
     }
     
     /* Set radius of zoom on map load. */

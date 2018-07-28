@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49F20424B94B5F0B5F486BA4 /* Pods_MapKitApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE2377ABBD4906992EE52F73 /* Pods_MapKitApp.framework */; };
 		95BAF68C210BE89400F4F9FB /* Venues.json in Resources */ = {isa = PBXBuildFile; fileRef = 95BAF68B210BE89400F4F9FB /* Venues.json */; };
 		95BAF68E210CAFE800F4F9FB /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BAF68D210CAFE800F4F9FB /* Venue.swift */; };
 		95F87E7D210BE4E30022F59E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F87E7C210BE4E30022F59E /* AppDelegate.swift */; };
@@ -26,6 +27,9 @@
 		95F87E83210BE4E40022F59E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95F87E86210BE4E40022F59E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		95F87E88210BE4E40022F59E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA37C85B30A048642F4A5C56 /* Pods-MapKitApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapKitApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapKitApp/Pods-MapKitApp.debug.xcconfig"; sourceTree = "<group>"; };
+		DA5EFC3121BEBB36C084A8BE /* Pods-MapKitApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapKitApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapKitApp/Pods-MapKitApp.release.xcconfig"; sourceTree = "<group>"; };
+		EE2377ABBD4906992EE52F73 /* Pods_MapKitApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapKitApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49F20424B94B5F0B5F486BA4 /* Pods_MapKitApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8101ADC39D6A3085A726945B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA37C85B30A048642F4A5C56 /* Pods-MapKitApp.debug.xcconfig */,
+				DA5EFC3121BEBB36C084A8BE /* Pods-MapKitApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		95F87E70210BE4E30022F59E = {
 			isa = PBXGroup;
 			children = (
 				95F87E7B210BE4E30022F59E /* MapKitApp */,
 				95F87E7A210BE4E30022F59E /* Products */,
+				8101ADC39D6A3085A726945B /* Pods */,
+				BDEBE2DA482A12BE5E5B5648 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +86,14 @@
 			path = MapKitApp;
 			sourceTree = "<group>";
 		};
+		BDEBE2DA482A12BE5E5B5648 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE2377ABBD4906992EE52F73 /* Pods_MapKitApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 95F87E8B210BE4E40022F59E /* Build configuration list for PBXNativeTarget "MapKitApp" */;
 			buildPhases = (
+				5715CF745E7F12C03E7ADA9B /* [CP] Check Pods Manifest.lock */,
 				95F87E75210BE4E30022F59E /* Sources */,
 				95F87E76210BE4E30022F59E /* Frameworks */,
 				95F87E77210BE4E30022F59E /* Resources */,
+				74C93BB502DB609BD14629CA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,6 +162,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5715CF745E7F12C03E7ADA9B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapKitApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		74C93BB502DB609BD14629CA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MapKitApp/Pods-MapKitApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapKitApp/Pods-MapKitApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		95F87E75210BE4E30022F59E /* Sources */ = {
@@ -286,6 +351,7 @@
 		};
 		95F87E8C210BE4E40022F59E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA37C85B30A048642F4A5C56 /* Pods-MapKitApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -303,6 +369,7 @@
 		};
 		95F87E8D210BE4E40022F59E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DA5EFC3121BEBB36C084A8BE /* Pods-MapKitApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
